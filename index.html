@@ -11,15 +11,11 @@
     <style>
         :root {
             --primary-color: #845EC2;
-            --secondary-color: #00D1A4;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --dark-gray: #757575;
             --white: #FFFFFF;
-            --transparent-white-10: rgba(255, 255, 255, 0.1);
-            --transparent-white-15: rgba(255, 255, 255, 0.15);
-            --transparent-white-30: rgba(255, 255, 255, 0.3);
-            --transparent-white-60: rgba(255, 255, 255, 0.6);
-            --transparent-white-85: rgba(255, 255, 255, 0.85);
-            --transparent-white-90: rgba(255, 255, 255, 0.9);
-            --transparent-black-10: rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -30,49 +26,41 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            color: var(--white);
-            background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color));
-            background-attachment: fixed;
+            color: var(--text-color);
+            background-color: var(--white);
             line-height: 1.6;
-            position: relative;
             padding-bottom: 30px;
         }
 
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(45deg, var(--transparent-white-10) 1px, transparent 1px),
-                linear-gradient(-45deg, var(--transparent-white-10) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -1;
-        }
-
         header {
-            position: relative;
+            background-color: var(--primary-color);
+            color: var(--white);
             padding: 20px 0;
             text-align: center;
-            background: linear-gradient(to bottom, var(--primary-color) 0%, transparent 100%);
             position: sticky;
             top: 0;
             z-index: 10;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .back-button {
             position: absolute;
             left: 15px;
-            top: 15px;
+            top: 50%;
+            transform: translateY(-50%);
             color: var(--white);
             background: none;
             border: none;
-            font-size: 24px;
+            font-size: 16px;
             cursor: pointer;
             display: flex;
             align-items: center;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        .back-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         .back-button::before {
@@ -90,8 +78,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 30px;
-            padding-top: 20px;
+            margin: 30px 0;
+            text-align: center;
         }
 
         .logo {
@@ -100,7 +88,7 @@
             border-radius: 50%;
             background-color: var(--white);
             padding: 8px;
-            box-shadow: 0 5px 20px rgba(132, 94, 194, 0.3);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 15px;
         }
 
@@ -112,68 +100,62 @@
         }
 
         .title {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: bold;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
         }
 
         .last-updated {
-            background-color: var(--transparent-white-15);
+            background-color: var(--light-gray);
             border-radius: 20px;
             padding: 4px 12px;
-            font-size: 12px;
-            color: var(--transparent-white-90);
+            font-size: 13px;
+            color: var(--dark-gray);
         }
 
         .policy-card {
-            background-color: var(--transparent-white-10);
-            border-radius: 16px;
-            border: 1px solid var(--transparent-white-10);
-            box-shadow: 0 5px 10px var(--transparent-black-10);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
+            background-color: var(--white);
+            border-radius: 8px;
+            border: 1px solid var(--medium-gray);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
             margin-bottom: 20px;
             padding: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .policy-card:hover {
-            transform: translateY(-2px);
         }
 
         .policy-card h2 {
-            font-size: 17px;
+            font-size: 18px;
             font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--white);
+            margin-bottom: 15px;
+            color: var(--primary-color);
         }
 
         .policy-card p {
-            font-size: 14px;
-            color: var(--transparent-white-85);
-            line-height: 1.5;
+            font-size: 15px;
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 10px;
         }
 
         .policy-card ul {
             margin-left: 20px;
-            color: var(--transparent-white-85);
+            color: var(--text-color);
         }
 
         .policy-card li {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .button {
             display: inline-block;
             background-color: var(--primary-color);
             color: var(--white);
-            padding: 16px 40px;
-            border-radius: 30px;
+            padding: 12px 30px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 15px;
-            letter-spacing: 0.5px;
-            box-shadow: 0 8px 15px rgba(132, 94, 194, 0.3);
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
@@ -181,32 +163,26 @@
         }
 
         .button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(132, 94, 194, 0.4);
+            background-color: #7344b5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         .footer {
             text-align: center;
-            margin-top: 30px;
-            padding-bottom: 40px;
-        }
-
-        .divider {
-            width: 30%;
-            height: 1px;
-            background-color: var(--transparent-white-30);
-            margin: 0 auto 20px auto;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--medium-gray);
         }
 
         .copyright {
             font-size: 14px;
-            color: var(--transparent-white-85);
+            color: var(--dark-gray);
             margin-bottom: 4px;
         }
 
         .rights {
             font-size: 12px;
-            color: var(--transparent-white-60);
+            color: var(--dark-gray);
         }
 
         @media (max-width: 600px) {
@@ -215,16 +191,29 @@
             }
             
             .title {
-                font-size: 22px;
+                font-size: 20px;
             }
             
             .policy-card {
                 padding: 15px;
             }
             
-            .button {
-                padding: 14px 30px;
+            .policy-card h2 {
+                font-size: 16px;
+            }
+            
+            .policy-card p {
                 font-size: 14px;
+            }
+            
+            .button {
+                padding: 10px 25px;
+                font-size: 15px;
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 20px;
             }
         }
     </style>
@@ -323,7 +312,6 @@
         </div>
 
         <div class="footer">
-            <div class="divider"></div>
             <p class="copyright">© 2025 Patify v1.0.0</p>
             <p class="rights">Tüm Hakları Saklıdır</p>
         </div>
